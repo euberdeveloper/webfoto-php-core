@@ -1,0 +1,20 @@
+{
+    "version": "1.0.0",
+    "name": "euberdeveloper/webfoto-php-core",
+    "description": "The php core code of the Webfoto project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Euberdeveloper\\WebfotoPhpCore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "euberdeveloper",
+            "email": "euberdeveloper@gmail.com"
+        }
+    ],
+    "require": {
+        "myclabs/php-enum": "^1.8"
+    }
+}
