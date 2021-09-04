@@ -51,15 +51,15 @@ class ImagesHandler
         return $secs === null ? null : new Datetime("@{$secs}");
     }
 
-    function __construct($settings)
+    function __construct(array $settings, string $outputFotosPath, string $cwd)
     {
         $this->name = $settings['name'];
-        $this->inputPath = $settings['inputPath'][0] === '/' ? $settings['inputPath'] : Path::join(WEBFOTO_CWD, $settings['inputPath']);
+        $this->inputPath = $settings['inputPath'][0] === '/' ? $settings['inputPath'] : Path::join($cwd, $settings['inputPath']);
         $this->driverType = new DriverType($settings['driver']);
         $this->keepEverySeconds = $settings['keepEverySeconds'];
 
-        $this->outputDir = WEBFOTO_CONFIG['OUTPUT_FOTOS_PATH'];
-        $this->outputPath = Path::join(WEBFOTO_CONFIG['OUTPUT_FOTOS_PATH'], $this->name);
+        $this->outputDir = $outputFotosPath;
+        $this->outputPath = Path::join($outputFotosPath, $this->name);
         if (!file_exists($this->outputPath)) {
             mkdir($this->outputPath, 0777, true);
         }
