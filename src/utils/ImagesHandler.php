@@ -51,7 +51,7 @@ class ImagesHandler
         return $secs === null ? null : new Datetime("@{$secs}");
     }
 
-    function __construct(array $settings, string $outputFotosPath, string $cwd)
+    function __construct(array $settings, string $outputFotosPath, BaseDatabaseService $db, string $cwd)
     {
         $this->name = $settings['name'];
         $this->inputPath = $settings['inputPath'][0] === '/' ? $settings['inputPath'] : Path::join($cwd, $settings['inputPath']);
@@ -66,7 +66,7 @@ class ImagesHandler
 
         $this->getDriver();
 
-        $this->db = new BaseDatabaseService();
+        $this->db = $db;
 
         $this->ftp = $settings['ftp'] ? new FtpService($settings['ftp']) : null;
     }
