@@ -1,6 +1,6 @@
 <?php
 
-namespace Webfoto\Utils;
+namespace Webfoto\Core\Utils;
 
 use DateTime;
 use Exception;
