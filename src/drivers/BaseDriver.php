@@ -7,11 +7,12 @@ use wherw\ScanPath;
 use Webmozart\PathUtil\Path;
 
 use Webfoto\Core\Types\InputImage;
+use Webfoto\Core\Utils\Logger;
 
 abstract class BaseDriver
 {
 
-    private string $albumPath;
+    protected string $albumPath;
 
     private function extractImagesFromFolder(): array
     {
@@ -49,5 +50,6 @@ abstract class BaseDriver
     function __construct(string $albumPath)
     {
         $this->albumPath = $albumPath;
+        Logger::$logger->debug('Created driver with path', [$albumPath]);
     }
 }

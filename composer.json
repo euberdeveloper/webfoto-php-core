@@ -17,6 +17,7 @@
     "require": {
         "myclabs/php-enum": "^1.8",
         "wherw/scan-path": "^1.0",
-        "webmozart/path-util": "^2.3"
+        "webmozart/path-util": "^2.3",
+        "monolog/monolog": "^2.3"
     }
 }

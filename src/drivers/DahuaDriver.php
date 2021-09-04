@@ -4,6 +4,7 @@ namespace Webfoto\Core\Drivers;
 
 use DateTime;
 use Webfoto\Core\Drivers\BaseDriver;
+use Webfoto\Core\Utils\Logger;
 
 class DahuaDriver extends BaseDriver
 {
@@ -24,6 +25,7 @@ class DahuaDriver extends BaseDriver
 
     public function analyzeAlbum(): array
     {
+        Logger::$logger->debug('Analyzing album', [$this->albumPath]);
         return $this->analyzeAlbumHelper(fn ($filename) => $this->extractDate($filename));
     }
 }
